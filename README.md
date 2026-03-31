@@ -1,0 +1,1 @@
+Built with React, node.js, gemini API, Supabase, and Tailwind CSS

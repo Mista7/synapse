@@ -2,6 +2,7 @@ import { useState } from 'react';
 import UploadZone from './components/UploadZone';
 import ConceptGraph from './components/ConceptGraph';
 import NodeDetail from './components/NodeDetail';
+import { supabase } from './lib/supabase';
 import './index.css';
 
 export default function App() {
@@ -50,7 +51,22 @@ export default function App() {
       <header className="header">
         <div className="header-logo">⚡</div>
         <div className="header-title">Synapse</div>
-        {docName && <div className="header-subtitle">📄 {docName}</div>}
+        {docName && <div className="header-subtitle" style={{ marginLeft: 16 }}>📄 {docName}</div>}
+        <div style={{ flex: 1 }} />
+        <button 
+          onClick={() => supabase.auth.signOut()}
+          style={{ 
+            background: 'transparent', 
+            border: '1px solid var(--border-color)', 
+            color: 'var(--text-color)', 
+            padding: '6px 12px', 
+            borderRadius: '4px', 
+            cursor: 'pointer',
+            fontSize: '0.9rem'
+          }}
+        >
+          Sign Out
+        </button>
       </header>
 
       <main className="main">
